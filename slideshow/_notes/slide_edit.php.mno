@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_language" value="name:language_id;datatype:int,name:language;datatype:string,name:code;datatype:string" />
+	<infoitem key="UD_slide" value="name:id;datatype:int,name:image;datatype:string,name:text;datatype:string,name:page;datatype:string,name:language_id;datatype:int" />
+</info>

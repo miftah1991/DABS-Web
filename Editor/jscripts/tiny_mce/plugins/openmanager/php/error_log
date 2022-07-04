@@ -1,0 +1,1 @@
+[08-Feb-2015 03:12:16 America/Denver] PHP Warning:  json_encode(): Invalid UTF-8 sequence in argument in /home4/bereshna/public_html/dabs/eda/Editor/jscripts/tiny_mce/plugins/openmanager/php/fileactions.php on line 147

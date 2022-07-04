@@ -1,0 +1,70 @@
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.dabs.af/$1 [R,L]
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule .* index.php/$0 [PT,L]
+
+RewriteEngine on
+RewriteCond $1 !^(index\.php|images|captcha|fonts|saas|Editor|uploads|slideshow|css|fonts|js|captcha|robots\.txt|sitemap\.xml)
+RewriteRule ^(.*)$ index.php/$1 [L]
+RewriteEngine on
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+RewriteRule .* - [F]
+
+DirectoryIndex index.html index.php index.htm
+Options -Indexes
+
+
+#ifram serif da dabs wakhle
+Header set X-Frame-Options SAMEORIGIN
+
+# secure htaccess file
+<FilesMatch "\.(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
+ Order Allow,Deny
+ Deny from all
+</FilesMatch>
+
+#Cache
+<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf)$">
+Header set Cache-Control "max-age=43200"
+</FilesMatch>
+#Disable all Scripts
+AddHandler cgi-script .pl .py .jsp .asp  .sh .cgi
+Options -ExecCGI
+
+<Limit PUT DELETE >
+        Require user pumba6snif8gleep4
+    </Limit>
+
+# allow all except those indicated here
+<Limit GET POST PUT>
+ order allow,deny
+ allow from all
+ deny from  104.24.104.205
+ deny from .*ashiyane\.ir.*
+</Limit>
+
+
+<IfModule mod_rewrite.c>
+
+
+RewriteCond %{HTTP_USER_AGENT} ^w3af.sourceforge.net [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} dirbuster [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} nikto [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} SF [OR]
+RewriteCond %{HTTP_USER_AGENT} sqlmap [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} fimap [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} nessus [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} whatweb [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Openvas [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} jbrofuzz [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} libwhisker [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} webshag [NC,OR]
+RewriteCond %{HTTP:Acunetix-Product} ^WVS
+RewriteRule ^.* http://www.dabs.af/ [R=301,L]
+</IfModule>
+#ZIA Config
+
